@@ -1,0 +1,30 @@
+# package directories
+node_modules
+
+# jetBrains IDE files
+.idea
+
+# Serverless directories
+.serverless
+
+.build
+.sonarlint
+
+# macOS
+.DS_Store
+
+.history
+.vscode/
+
+*.log
+
+# .env files
+.env
+.env.*
+!.env.example
+
+# docker
+docker
+.dynamodb
+
+package-lock.json

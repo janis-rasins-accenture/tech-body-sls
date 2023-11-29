@@ -1,0 +1,22 @@
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+app: serverless-basic
+service: serverless-basic
+useDotenv: true
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: ${opt:stage, 'local'}
+  region: ${env:REGION}
+  timeout: 30
+  memorySize: 256
+  environment:
+    IS_OFFLINE: ${env:IS_OFFLINE}
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+    lambdaPort: 4002
