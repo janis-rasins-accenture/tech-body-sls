@@ -20,3 +20,12 @@ custom:
   serverless-offline:
     httpPort: 4000
     lambdaPort: 4002
+
+functions:
+  hello-world:
+    handler: src/handlers/hello/hello.handler
+    description: 'offline example'
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/hello
+          method: GET
