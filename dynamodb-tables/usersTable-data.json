@@ -1,0 +1,47 @@
+[
+    {
+        "userId": {
+            "S": "1"
+        },
+        "firstName": {
+            "S": "User"
+        },
+        "isActive": {
+            "N": "1"
+        }
+    },
+    {
+        "firstName": {
+            "S": "Test"
+        },
+        "userName": {
+            "S": "TestUser"
+        },
+        "isActive": {
+            "N": "1"
+        },
+        "userId": {
+            "S": "2"
+        }
+    },
+	{
+		"userId": {
+            "S": "5"
+        },
+		"firstName": {
+            "S": "Randall"
+        },
+		"lastName": {
+            "S": "Barton"
+        },
+		"email": {
+            "S": "Randall_Barton@example.com"
+        },
+		"avatarUrl": {
+            "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/56.jpg"
+        },
+		"userName": {
+            "S": "Randall67"
+        }
+	}
+]
