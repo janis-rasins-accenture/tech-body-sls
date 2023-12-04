@@ -27,6 +27,8 @@ provider:
       Resource: 'arn:aws:dynamodb:${env:REGION}:*:*'
   environment:
     IS_OFFLINE: ${env:IS_OFFLINE}
+    DYNAMO_ENDPOINT: ${env:DYNAMO_ENDPOINT}
+    REGION: ${env:REGION}
 
 custom:
   serverless-offline:
@@ -58,6 +60,15 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/hello
           method: GET
+  getUsers:
+    handler: src/handlers/users/queryUsers.handler
+    description: 'Get active users'
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/users
+          method: GET
+    environment:
+      TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 
 resources:
   Resources:
