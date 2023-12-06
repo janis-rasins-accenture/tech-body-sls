@@ -51,6 +51,8 @@ custom:
         sources:
           - table: usersTable
             rawsources: [./dynamodb-tables/usersTable-data.json]
+          - table: carouselSlidesTable
+            rawsources: [./dynamodb-tables/carouselSlidesTable-data.json]
 
 functions:
   hello-world:
@@ -69,6 +71,15 @@ functions:
           method: GET
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
+  getCarouselSlides:
+    handler: src/handlers/carouselSlides/queryCarouselSlides.handler
+    description: 'Get carousel slides'
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/carouselSlides
+          method: GET
+    environment:
+      TABLE_NAME_SLIDES: ${env:TABLE_NAME_SLIDES}
 
 resources:
   Resources:
@@ -108,6 +119,35 @@ resources:
               - AttributeName: userName
                 KeyType: HASH
               - AttributeName: firstName
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 3
+              WriteCapacityUnits: 3
+    carouselSlidesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: carouselSlidesTable
+        KeySchema:
+          - AttributeName: carouselSlideId
+            KeyType: HASH
+        AttributeDefinitions:
+          - AttributeName: carouselSlideId
+            AttributeType: S
+          - AttributeName: isActiveSlide
+            AttributeType: N
+          - AttributeName: sortIndex
+            AttributeType: N
+        ProvisionedThroughput:
+          ReadCapacityUnits: 3
+          WriteCapacityUnits: 3
+        GlobalSecondaryIndexes:
+          - IndexName: isActiveSlideIndex
+            KeySchema:
+              - AttributeName: isActiveSlide
+                KeyType: HASH
+              - AttributeName: sortIndex
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
