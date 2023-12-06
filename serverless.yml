@@ -39,7 +39,7 @@ custom:
       - local
     start:
       docker: true
-      port: 8011
+      port: 8010
       inMemory: true
       heapInitial: 200m
       heapMax: 1g
