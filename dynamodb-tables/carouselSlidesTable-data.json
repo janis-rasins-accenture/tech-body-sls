@@ -1,50 +1,53 @@
 [
     {
-        "userId": {
+        "carouselSlideId": {
             "S": "1"
         },
-        "firstName": {
-            "S": "User"
+        "title": {
+            "S": "Cliff"
         },
-        "isActive": {
+        "link": {
+            "S": "https://images.pexels.com/photos/6136015/pexels-photo-6136015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        "description": {
+            "S": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        "isActiveSlide": {
             "N": "1"
         }
-    },
-    {
-        "firstName": {
-            "S": "Test"
-        },
-        "userName": {
-            "S": "TestUser"
-        },
-        "isActive": {
-            "N": "1"
-        },
-        "userId": {
+      },
+      {
+        "carouselSlideId": {
             "S": "2"
-        }
-    },
-	{
-        "isActive": {
+        },
+        "title": {
+            "S": "Forest"
+        },
+        "link": {
+            "S": "https://images.pexels.com/photos/167698/pexels-photo-167698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        "description": {
+            "S": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        "isActiveSlide": {
             "N": "1"
-        },
-		"userId": {
-            "S": "5"
-        },
-		"firstName": {
-            "S": "Randall"
-        },
-		"lastName": {
-            "S": "Barton"
-        },
-		"email": {
-            "S": "Randall_Barton@example.com"
-        },
-		"avatarUrl": {
-            "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/56.jpg"
-        },
-		"userName": {
-            "S": "Randall67"
         }
-	}
+      },
+      {
+        "carouselSlideId": {
+            "S": "3"
+        },
+        "title": {
+            "S": "Ocean"
+        },
+        "link": {
+            "S": "https://images.pexels.com/photos/5359974/pexels-photo-5359974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        "description": {
+            "S": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        "isActiveSlide": {
+            "N": "1"
+        }
+      }
 ]
