@@ -137,8 +137,8 @@ resources:
             AttributeType: S
           - AttributeName: isActiveSlide
             AttributeType: N
-          - AttributeName: title
-            AttributeType: S
+          - AttributeName: sortIndex
+            AttributeType: N
         ProvisionedThroughput:
           ReadCapacityUnits: 3
           WriteCapacityUnits: 3
@@ -147,7 +147,7 @@ resources:
             KeySchema:
               - AttributeName: isActiveSlide
                 KeyType: HASH
-              - AttributeName: title
+              - AttributeName: sortIndex
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
