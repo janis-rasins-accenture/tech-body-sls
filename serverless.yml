@@ -71,6 +71,14 @@ functions:
           method: GET
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
+  createUser:
+    handler: src/handlers/users/createUser.handler
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/users
+          method: POST
+    environment:
+      TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
   getCarouselSlides:
     handler: src/handlers/carouselSlides/queryCarouselSlides.handler
     description: 'Get carousel slides'
