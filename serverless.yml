@@ -88,6 +88,14 @@ functions:
           method: GET
     environment:
       TABLE_NAME_SLIDES: ${env:TABLE_NAME_SLIDES}
+  createCarouselSlides:
+    handler: src/handlers/carouselSlides/createCarouselSlides.handler
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/carouselSlides
+          method: POST
+    environment:
+      TABLE_NAME_USERS: ${env:TABLE_NAME_SLIDES}
 
 resources:
   Resources:
