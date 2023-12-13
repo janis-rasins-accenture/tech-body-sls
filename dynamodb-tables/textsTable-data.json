@@ -1,0 +1,30 @@
+[
+  {
+    "textId": {
+      "S": "1"
+    },
+    "isActive": {
+      "N": 0
+    },
+    "text": {
+      "S": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+    },
+    "title": {
+      "S": "Title"
+    }
+  },
+  {
+    "textId": {
+      "S": "2"
+    },
+    "isActive": {
+      "N": 1
+    },
+    "text": {
+      "S": "Fuga fugiat doloremque optio pariatur minus repudiandae, necessitatibus laudantium magnam voluptatum, eius saepe possimus harum eos natus eaque voluptate cupiditate?"
+    },
+    "title": {
+      "S": "Second Title"
+    }
+  }
+]
