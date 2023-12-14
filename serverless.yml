@@ -53,6 +53,8 @@ custom:
             rawsources: [./dynamodb-tables/usersTable-data.json]
           - table: carouselSlidesTable
             rawsources: [./dynamodb-tables/carouselSlidesTable-data.json]
+          - table: textsTable
+            rawsources: [./dynamodb-tables/textsTable-data.json]
 
 functions:
   hello-world:
@@ -88,6 +90,31 @@ functions:
           method: GET
     environment:
       TABLE_NAME_SLIDES: ${env:TABLE_NAME_SLIDES}
+  createCarouselSlides:
+    handler: src/handlers/carouselSlides/createCarouselSlides.handler
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/carouselSlides
+          method: POST
+    environment:
+      TABLE_NAME_USERS: ${env:TABLE_NAME_SLIDES}
+  getTexts:
+    handler: src/handlers/texts/queryTexts.handler
+    description: 'Get texts'
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/texts
+          method: GET
+    environment:
+      TABLE_NAME_TEXTS: ${env:TABLE_NAME_TEXTS}
+  createTexts:
+    handler: src/handlers/texts/createTexts.handler
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/texts
+          method: POST
+    environment:
+      TABLE_NAME_TEXTS: ${env:TABLE_NAME_TEXTS}
 
 resources:
   Resources:
@@ -154,6 +181,35 @@ resources:
           - IndexName: isActiveSlideIndex
             KeySchema:
               - AttributeName: isActiveSlide
+                KeyType: HASH
+              - AttributeName: sortIndex
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 3
+              WriteCapacityUnits: 3
+    textsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: textsTable
+        KeySchema:
+          - AttributeName: textId
+            KeyType: HASH
+        AttributeDefinitions:
+          - AttributeName: textId
+            AttributeType: S
+          - AttributeName: isActive
+            AttributeType: N
+          - AttributeName: sortIndex
+            AttributeType: N  
+        ProvisionedThroughput:
+          ReadCapacityUnits: 3
+          WriteCapacityUnits: 3
+        GlobalSecondaryIndexes:
+          - IndexName: isActiveTextsIndex
+            KeySchema:
+              - AttributeName: isActive
                 KeyType: HASH
               - AttributeName: sortIndex
                 KeyType: RANGE

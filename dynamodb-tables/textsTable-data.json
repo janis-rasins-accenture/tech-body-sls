@@ -1,0 +1,36 @@
+[
+  {
+    "textId": {
+      "S": "1"
+    },
+    "isActive": {
+      "N": 0
+    },
+    "sortIndex": {
+      "N": 1
+    },
+    "text": {
+      "S": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+    },
+    "title": {
+      "S": "Title"
+    }
+  },
+  {
+    "textId": {
+      "S": "2"
+    },
+    "isActive": {
+      "N": 1
+    },
+    "sortIndex": {
+      "N": 1
+    },
+    "text": {
+      "S": "Fuga fugiat doloremque optio pariatur minus repudiandae."
+    },
+    "title": {
+      "S": "Second Title"
+    }
+  }
+]

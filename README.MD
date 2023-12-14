@@ -29,6 +29,6 @@ To install the local table viewer/editor, run `npm install -g dynamodb-admin`
 
 ### Start project
 You will need three terminals
-1. To start Dynamo DB locally, run `npm run dynamodb-local`
-2. To start Dynamodb-admin, run `npm run dynamodb-admin`
-3. To start serverless offline, run `npm start`
+1. To start Dynamo DB locally, run `npm run dynamodb-local` //Ubuntu
+2. To start Dynamodb-admin, run `npm run dynamodb-admin` //Ubuntu
+3. To start serverless offline, run `npm start` //PowerShell
