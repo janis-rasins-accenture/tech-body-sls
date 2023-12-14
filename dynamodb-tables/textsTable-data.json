@@ -6,6 +6,9 @@
     "isActive": {
       "N": 0
     },
+    "sortIndex": {
+      "N": 1
+    },
     "text": {
       "S": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
     },
@@ -20,8 +23,11 @@
     "isActive": {
       "N": 1
     },
+    "sortIndex": {
+      "N": 1
+    },
     "text": {
-      "S": "Fuga fugiat doloremque optio pariatur minus repudiandae, necessitatibus laudantium magnam voluptatum, eius saepe possimus harum eos natus eaque voluptate cupiditate?"
+      "S": "Fuga fugiat doloremque optio pariatur minus repudiandae."
     },
     "title": {
       "S": "Second Title"

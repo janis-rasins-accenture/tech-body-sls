@@ -7,6 +7,7 @@ export interface CarouselSlidesBaseIF {
   export interface CarouselSlidesIF extends CarouselSlidesBaseIF {
     carouselSlidesId: string;
     isActive?: number;
+    sortIndex?: number;
   }
   
   export interface InputCarouselSlidesCreateIF extends CarouselSlidesBaseIF {}

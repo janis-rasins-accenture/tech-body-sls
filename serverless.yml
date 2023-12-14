@@ -194,13 +194,15 @@ resources:
       Properties:
         TableName: textsTable
         KeySchema:
-          - AttributeName: textsId
+          - AttributeName: textId
             KeyType: HASH
         AttributeDefinitions:
-          - AttributeName: textsId
+          - AttributeName: textId
             AttributeType: S
           - AttributeName: isActive
             AttributeType: N
+          - AttributeName: sortIndex
+            AttributeType: N  
         ProvisionedThroughput:
           ReadCapacityUnits: 3
           WriteCapacityUnits: 3
@@ -209,6 +211,8 @@ resources:
             KeySchema:
               - AttributeName: isActive
                 KeyType: HASH
+              - AttributeName: sortIndex
+                KeyType: RANGE
             Projection:
               ProjectionType: ALL
             ProvisionedThroughput:
