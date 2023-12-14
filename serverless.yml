@@ -108,7 +108,7 @@ functions:
     environment:
       TABLE_NAME_TEXTS: ${env:TABLE_NAME_TEXTS}
   createTexts:
-    handler: src/handlers/texts/createTexts.handler
+    handler: src/handlers/texts/createText.handler
     events:
       - httpApi:
           path: /${self:provider.stage}/texts
