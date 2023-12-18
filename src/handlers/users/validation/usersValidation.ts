@@ -50,8 +50,6 @@ export const userCreateSchema: Yup.ObjectSchema<InputUserCreateIF> = Yup.object(
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,}$/,
         'Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character (!@#$%^&*()'
-      ),
-      isAdmin: Yup.number()
-      .required('')
+      )
   }
 );

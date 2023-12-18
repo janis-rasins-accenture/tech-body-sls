@@ -31,10 +31,12 @@ export const handler = async (event: APIGatewayEvent) => {
       userId: uuid,
       firstName: user.firstName,
       isActive: 1,
+      isAdmin: 0,
       lastName: user.lastName,
       email: user.email,
       userName: user.userName,
       avatarUrl: user.avatarUrl,
+      password: user.password,
     },
   };
   const result = await putItem(params);

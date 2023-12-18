@@ -4,13 +4,13 @@ export interface UserBaseIF {
   email: string;
   avatarUrl?: string;
   userName: string;
-  password: string;
-  isAdmin: number;
+  password: string
 }
 
 export interface UserIF extends UserBaseIF {
   userId: string;
   isActive?: number;
+  isAdmin: number;
 }
 
 export interface InputUserCreateIF extends UserBaseIF {}
