@@ -4,6 +4,8 @@ export interface UserBaseIF {
   email: string;
   avatarUrl?: string;
   userName: string;
+  password: string;
+  isAdmin: number;
 }
 
 export interface UserIF extends UserBaseIF {

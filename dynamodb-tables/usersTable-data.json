@@ -12,14 +12,14 @@
     "email": {
       "S": "Floyd.Skiles@example.com"
     },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/830.jpg"
-    },
     "userName": {
       "S": "Floyd.Skiles"
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -43,6 +43,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -58,14 +61,14 @@
     "email": {
       "S": "Rafael_Hickle66@example.com"
     },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/353.jpg"
-    },
     "userName": {
       "S": "Rafael24"
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -89,6 +92,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -112,6 +118,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -135,6 +144,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -158,6 +170,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -181,6 +196,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -204,6 +222,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -227,6 +248,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -250,6 +274,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -273,6 +300,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -296,6 +326,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -319,6 +352,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -342,6 +378,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -365,6 +404,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -388,6 +430,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -411,6 +456,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -434,6 +482,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -457,6 +508,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -480,6 +534,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -503,6 +560,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -526,6 +586,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -549,6 +612,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -572,6 +638,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -595,6 +664,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -618,6 +690,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -641,6 +716,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -664,6 +742,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   },
   {
@@ -687,6 +768,9 @@
     },
     "isActive": {
       "N": "1"
+    },
+    "isAdmin": {
+      "N": "0"
     }
   }
 ]
