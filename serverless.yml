@@ -53,8 +53,8 @@ custom:
             rawsources: [./dynamodb-tables/usersTable-data.json]
           - table: carouselSlidesTable
             rawsources: [./dynamodb-tables/carouselSlidesTable-data.json]
-          - table: textsTable
-            rawsources: [./dynamodb-tables/textsTable-data.json]
+          - table: questionsTable
+            rawsources: [./dynamodb-tables/questionsTable-data.json]
 
 functions:
   hello-world:
@@ -98,23 +98,23 @@ functions:
           method: POST
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_SLIDES}
-  getTexts:
-    handler: src/handlers/texts/queryTexts.handler
+  getQuestions:
+    handler: src/handlers/questions/queryQuestions.handler
     description: 'Get texts'
     events:
       - httpApi:
-          path: /${self:provider.stage}/texts
+          path: /${self:provider.stage}/questions
           method: GET
     environment:
-      TABLE_NAME_TEXTS: ${env:TABLE_NAME_TEXTS}
+      TABLE_NAME_QUESTIONS: ${env:TABLE_NAME_QUESTIONS}
   createTexts:
-    handler: src/handlers/texts/createText.handler
+    handler: src/handlers/questions/createQuestion.handler
     events:
       - httpApi:
-          path: /${self:provider.stage}/texts
+          path: /${self:provider.stage}/questions
           method: POST
     environment:
-      TABLE_NAME_TEXTS: ${env:TABLE_NAME_TEXTS}
+      TABLE_NAME_QUESTIONS: ${env:TABLE_NAME_QUESTIONS}
 
 resources:
   Resources:
@@ -189,15 +189,15 @@ resources:
             ProvisionedThroughput:
               ReadCapacityUnits: 3
               WriteCapacityUnits: 3
-    textsTable:
+    questionsTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: textsTable
+        TableName: questionsTable
         KeySchema:
-          - AttributeName: textId
+          - AttributeName: questionId
             KeyType: HASH
         AttributeDefinitions:
-          - AttributeName: textId
+          - AttributeName: questionId
             AttributeType: S
           - AttributeName: isActive
             AttributeType: N
@@ -207,7 +207,7 @@ resources:
           ReadCapacityUnits: 3
           WriteCapacityUnits: 3
         GlobalSecondaryIndexes:
-          - IndexName: isActiveTextsIndex
+          - IndexName: isActiveQuestionsIndex
             KeySchema:
               - AttributeName: isActive
                 KeyType: HASH
