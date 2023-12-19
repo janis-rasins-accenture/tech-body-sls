@@ -55,6 +55,8 @@ custom:
             rawsources: [./dynamodb-tables/carouselSlidesTable-data.json]
           - table: questionsTable
             rawsources: [./dynamodb-tables/questionsTable-data.json]
+          - table: authTable
+            rawsources: [./dynamodb-tables/authTable-data.json]
 
 functions:
   hello-world:
@@ -64,6 +66,7 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/hello
           method: GET
+          cors: true
   getUsers:
     handler: src/handlers/users/queryUsers.handler
     description: 'Get active users'
@@ -71,6 +74,7 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/users
           method: GET
+          cors: true
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
   createUser:
@@ -79,8 +83,10 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/users
           method: POST
+          cors: true
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
+      TABLE_NAME_AUTH: ${env:TABLE_NAME_AUTH}
   getCarouselSlides:
     handler: src/handlers/carouselSlides/queryCarouselSlides.handler
     description: 'Get carousel slides'
@@ -88,6 +94,7 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/carouselSlides
           method: GET
+          cors: true
     environment:
       TABLE_NAME_SLIDES: ${env:TABLE_NAME_SLIDES}
   createCarouselSlides:
@@ -96,8 +103,9 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/carouselSlides
           method: POST
+          cors: true
     environment:
-      TABLE_NAME_USERS: ${env:TABLE_NAME_SLIDES}
+      TABLE_NAME_SLIDES: ${env:TABLE_NAME_SLIDES}
   getQuestions:
     handler: src/handlers/questions/queryQuestions.handler
     description: 'Get texts'
@@ -105,6 +113,7 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/questions
           method: GET
+          cors: true
     environment:
       TABLE_NAME_QUESTIONS: ${env:TABLE_NAME_QUESTIONS}
   createTexts:
@@ -113,8 +122,21 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/questions
           method: POST
+          cors: true
     environment:
       TABLE_NAME_QUESTIONS: ${env:TABLE_NAME_QUESTIONS}
+  login:
+    handler: src/handlers/auth/auth.login
+    events:
+      - http:
+          path: /${self:provider.stage}/login
+          method: POST
+          cors: true
+    environment:
+      TABLE_NAME_AUTH: ${env:TABLE_NAME_AUTH}
+      JWT_SECRET: ${env:JWT_SECRET}
+  verifyToken:
+    handler: src/handlers/auth/auth.validate
 
 resources:
   Resources:
@@ -218,3 +240,16 @@ resources:
             ProvisionedThroughput:
               ReadCapacityUnits: 3
               WriteCapacityUnits: 3
+    authTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: authTable
+        KeySchema:
+          - AttributeName: email
+            KeyType: HASH
+        AttributeDefinitions:
+          - AttributeName: email
+            AttributeType: S
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

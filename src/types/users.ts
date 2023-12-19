@@ -4,7 +4,7 @@ export interface UserBaseIF {
   email: string;
   avatarUrl?: string;
   userName: string;
-  password: string
+  password: string;
 }
 
 export interface UserIF extends UserBaseIF {
@@ -18,4 +18,9 @@ export interface InputUserCreateIF extends UserBaseIF {}
 export interface InputUserUpdateIF extends UserBaseIF {
   userId: string;
   isActive: number;
+}
+
+export interface UserAuthIF {
+  email: string;
+  password: string;
 }
