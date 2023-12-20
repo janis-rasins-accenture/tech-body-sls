@@ -17,3 +17,11 @@ export const generateCookie = (
     httpOnly: true,
   });
 };
+
+export const verifyCookie = (cookieHeader: string, jwtSecret: string) => {
+  const { token } = cookie.parse(cookieHeader);
+  if (token) {
+    return jwt.verify(token, jwtSecret);
+  }
+  return {};
+};
