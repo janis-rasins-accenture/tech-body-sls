@@ -2,11 +2,11 @@ import { APIGatewayEvent } from 'aws-lambda';
 import { v4 as uuidv4 } from 'uuid';
 import { PutCommandInput } from '@aws-sdk/lib-dynamodb';
 import { ValidationError } from 'yup';
+import bcrypt from 'bcrypt';
 import { putItem } from '../../aws/dynamodb/putItem';
 import { returnData } from '../../utils/returnData';
 import { InputUserCreateIF } from '../../types/users';
 import { userCreateSchema } from './validation/usersValidation';
-import bcrypt from 'bcrypt';
 
 export const handler = async (event: APIGatewayEvent) => {
   const { TABLE_NAME_USERS } = process.env;
@@ -40,8 +40,8 @@ export const handler = async (event: APIGatewayEvent) => {
     },
   };
 
-  const salt = bcrypt.genSaltSync(10)
-  const hashedPassword = bcrypt.hashSync(user.password.toString(), salt)
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = bcrypt.hashSync(user.password.toString(), salt);
 
   const paramsAuth: PutCommandInput = {
     TableName: TABLE_NAME_AUTH,
@@ -57,13 +57,12 @@ export const handler = async (event: APIGatewayEvent) => {
       putItem(params),
       putItem(paramsAuth),
     ]);
-    
+
     if (result.success && resultAuth.success) {
       console.log(`User with Id ${uuid} created!`);
       return returnData(200, 'Success!', { userId: uuid });
-    } else {
-      return returnData(400, 'Failed to create user or auth entry');
     }
+    return returnData(400, 'Failed to create user or auth entry');
   } catch (error) {
     return returnData(500, 'Internal Server Error', { error });
   }
