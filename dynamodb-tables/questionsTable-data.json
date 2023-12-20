@@ -1,0 +1,36 @@
+[
+  {
+    "questionId": {
+      "S": "1"
+    },
+    "isActive": {
+      "N": 0
+    },
+    "sortIndex": {
+      "N": 1
+    },
+    "answer": {
+      "S": "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+    },
+    "question": {
+      "S": "How to create account?"
+    }
+  },
+  {
+    "questionId": {
+      "S": "2"
+    },
+    "isActive": {
+      "N": 1
+    },
+    "sortIndex": {
+      "N": 1
+    },
+    "answer": {
+      "S": "Fuga fugiat doloremque optio pariatur minus repudiandae."
+    },
+    "question": {
+      "S": "Forgot password"
+    }
+  }
+]

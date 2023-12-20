@@ -6,9 +6,11 @@ import { putItem } from '../../aws/dynamodb/putItem';
 import { returnData } from '../../utils/returnData';
 import { InputUserCreateIF } from '../../types/users';
 import { userCreateSchema } from './validation/usersValidation';
+import bcrypt from 'bcrypt';
 
 export const handler = async (event: APIGatewayEvent) => {
   const { TABLE_NAME_USERS } = process.env;
+  const { TABLE_NAME_AUTH } = process.env;
   if (!TABLE_NAME_USERS) {
     return returnData(400, 'Table name is not defined!');
   }
@@ -31,18 +33,38 @@ export const handler = async (event: APIGatewayEvent) => {
       userId: uuid,
       firstName: user.firstName,
       isActive: 1,
-      isAdmin: 0,
       lastName: user.lastName,
       email: user.email,
       userName: user.userName,
       avatarUrl: user.avatarUrl,
-      password: user.password,
     },
   };
-  const result = await putItem(params);
-  if (result.success) {
-    console.log(`User with Id ${uuid} created!`);
-    return returnData(200, 'Success!', { userId: uuid });
+
+  const salt = bcrypt.genSaltSync(10)
+  const hashedPassword = bcrypt.hashSync(user.password.toString(), salt)
+
+  const paramsAuth: PutCommandInput = {
+    TableName: TABLE_NAME_AUTH,
+    Item: {
+      userId: uuid,
+      isAdmin: 0,
+      email: user.email,
+      password: hashedPassword,
+    },
+  };
+  try {
+    const [result, resultAuth] = await Promise.all([
+      putItem(params),
+      putItem(paramsAuth),
+    ]);
+    
+    if (result.success && resultAuth.success) {
+      console.log(`User with Id ${uuid} created!`);
+      return returnData(200, 'Success!', { userId: uuid });
+    } else {
+      return returnData(400, 'Failed to create user or auth entry');
+    }
+  } catch (error) {
+    return returnData(500, 'Internal Server Error', { error });
   }
-  return returnData(400, result.error);
 };
