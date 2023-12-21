@@ -3,7 +3,7 @@ import { returnData } from '../../utils/returnData';
 import { UserAuthIF } from '../../types/users';
 import { queryItems } from '../../aws/dynamodb/queryItems';
 import { matchPassword } from './lib/password';
-import { generateCookie } from './lib/cookies';
+import { generateCookie, verifyCookie } from './lib/cookies';
 
 export const login = async (event: APIGatewayEvent) => {
   if (!event.body) {
@@ -44,6 +44,48 @@ export const login = async (event: APIGatewayEvent) => {
     headers: {
       'Set-Cookie': cookie,
     },
-    body: { success: true, userId },
+    body: JSON.stringify({ success: true, userId }),
+  };
+};
+
+export const logout = async () => {
+  return {
+    statusCode: 200,
+    headers: {
+      'Set-Cookie': 'token=deleted; expires=Thu, 01 Jan 1970 00:00:00 GMT',
+    },
+    body: JSON.stringify({ success: true }),
+  };
+};
+
+export const isAuthorized = async (event: APIGatewayEvent) => {
+  const { JWT_SECRET } = process.env;
+  if (!JWT_SECRET) {
+    return returnData(400, "Can't find JWT secret key");
+  }
+  const unauthorized = {
+    statusCode: 401,
+    body: JSON.stringify({ success: false, err: 'Unauthorized' }),
+  };
+  const cookieHeader = event.headers.cookie ?? event.headers.Cookie;
+  if (!cookieHeader) {
+    return unauthorized;
+  }
+  const decoded = verifyCookie(cookieHeader, JWT_SECRET);
+  if (!(decoded instanceof Object)) {
+    return unauthorized;
+  }
+  const currentTimestamp = new Date().getTime();
+  const expireTimestamp = decoded.exp ? decoded.exp * 1000 : 1000;
+  if (expireTimestamp < currentTimestamp) {
+    return unauthorized;
+  }
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      success: true,
+      userId: decoded.userId,
+      expireTimestamp,
+    }),
   };
 };
