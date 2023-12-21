@@ -128,7 +128,7 @@ functions:
   login:
     handler: src/handlers/auth/auth.login
     events:
-      - http:
+      - httpApi:
           path: /${self:provider.stage}/login
           method: POST
           cors: true
