@@ -18,10 +18,20 @@ export const generateCookie = (
   });
 };
 
-export const verifyCookie = (cookieHeader: string, jwtSecret: string) => {
-  const { token } = cookie.parse(cookieHeader);
-  if (token) {
-    return jwt.verify(token, jwtSecret);
+export const verifyCookie = (
+  cookieHeader: string | undefined,
+  jwtSecret: string | undefined
+) => {
+  if (!jwtSecret) {
+    return {};
   }
-  return {};
+  if (!cookieHeader) {
+    return {};
+  }
+  const { token } = cookie.parse(cookieHeader);
+  if (!token) {
+    return {};
+  }
+  const response = jwt.verify(token, jwtSecret);
+  return response;
 };
