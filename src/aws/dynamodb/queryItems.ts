@@ -5,7 +5,7 @@ export const queryItems = async (params: QueryCommandInput) => {
   try {
     const data = await ddbDocClient.send(new QueryCommand(params));
     if (!data.Items?.[0].password) {
-      console.log('Success: ', data.Items);
+      console.log('Success!. First 5 entries ', data.Items?.slice(0, 4));
     }
     return data.Items;
   } catch (error: any) {
