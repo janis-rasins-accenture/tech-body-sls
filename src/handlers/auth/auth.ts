@@ -4,6 +4,7 @@ import { UserAuthIF } from '../../types/users';
 import { queryItems } from '../../aws/dynamodb/queryItems';
 import { matchPassword } from './lib/password';
 import { generateCookie, verifyCookie } from './lib/cookies';
+import { generatePolicy } from './lib/policy';
 
 export const login = async (event: APIGatewayEvent) => {
   if (!event.body) {
@@ -60,17 +61,12 @@ export const logout = async () => {
 
 export const isAuthorized = async (event: APIGatewayEvent) => {
   const { JWT_SECRET } = process.env;
-  if (!JWT_SECRET) {
-    return returnData(400, "Can't find JWT secret key");
-  }
   const unauthorized = {
     statusCode: 401,
     body: JSON.stringify({ success: false, err: 'Unauthorized' }),
   };
   const cookieHeader = event.headers.cookie ?? event.headers.Cookie;
-  if (!cookieHeader) {
-    return unauthorized;
-  }
+  console.log('event.headers', event.headers);
   const decoded = verifyCookie(cookieHeader, JWT_SECRET);
   if (!(decoded instanceof Object)) {
     return unauthorized;
@@ -88,4 +84,15 @@ export const isAuthorized = async (event: APIGatewayEvent) => {
       expireTimestamp,
     }),
   };
+};
+
+export const verifyToken = async (event: APIGatewayEvent) => {
+  const { JWT_SECRET } = process.env;
+  const cookieHeader = event.headers.cookie ?? event.headers.Cookie;
+  const decoded = verifyCookie(cookieHeader, JWT_SECRET);
+  if (!(decoded instanceof Object)) {
+    return {};
+  }
+  const policy = generatePolicy(decoded.userId, 'Allow');
+  return policy;
 };

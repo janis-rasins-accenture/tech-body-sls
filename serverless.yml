@@ -29,6 +29,7 @@ provider:
     IS_OFFLINE: ${env:IS_OFFLINE}
     DYNAMO_ENDPOINT: ${env:DYNAMO_ENDPOINT}
     REGION: ${env:REGION}
+    JWT_SECRET: ${env:JWT_SECRET}
 
 custom:
   serverless-offline:
@@ -73,6 +74,7 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/users
           method: GET
+          authorizer: ${file(./yml/authorizer.yml)}
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
   createUser:
@@ -126,7 +128,6 @@ functions:
           method: POST
     environment:
       TABLE_NAME_AUTH: ${env:TABLE_NAME_AUTH}
-      JWT_SECRET: ${env:JWT_SECRET}
   logout:
     handler: src/handlers/auth/auth.logout
     events:
@@ -139,8 +140,8 @@ functions:
       - httpApi:
           path: /${self:provider.stage}/auth
           method: GET
-    environment:
-      JWT_SECRET: ${env:JWT_SECRET}
+  verifyToken:
+    handler: src/handlers/auth/auth.verifyToken
 
 resources:
   Resources:
