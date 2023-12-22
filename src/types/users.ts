@@ -24,3 +24,7 @@ export interface UserAuthIF {
   email: string;
   password: string;
 }
+
+export interface UserPathParams {
+  userId: string;
+}

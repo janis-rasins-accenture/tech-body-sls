@@ -141,6 +141,15 @@ functions:
           method: GET
     environment:
       JWT_SECRET: ${env:JWT_SECRET}
+  getUsers:
+    handler: src/handlers/users/queryUser.handler
+    description: 'Get active users'
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/user/{userId}
+          method: GET
+    environment:
+      TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 
 resources:
   Resources:
