@@ -15,9 +15,14 @@ export interface UserIF extends UserBaseIF {
 
 export interface InputUserCreateIF extends UserBaseIF {}
 
-export interface InputUserUpdateIF extends UserBaseIF {
-  userId: string;
-  isActive: number;
+export interface InputUserUpdateIF {
+  userId?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  avatarUrl?: string;
+  userName?: string;
+  password?: string;
 }
 
 export interface UserAuthIF {

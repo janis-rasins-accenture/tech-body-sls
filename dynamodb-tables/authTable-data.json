@@ -8,9 +8,6 @@
 			},
 			"password": {
 				"S": "$2b$10$KN4gjgN01aG39TjYVg01HObOBWbw2cotK2FZ1ah/JPcMCcY2AgBTa"
-			},
-			"isAdmin": {
-				"N": 1
 			}
 		},
 		{
@@ -22,9 +19,6 @@
 			},
 			"password": {
 				"S": "$2b$10$KN4gjgN01aG39TjYVg01HObOBWbw2cotK2FZ1ah/JPcMCcY2AgBTa"
-			},
-			"isAdmin": {
-				"N": 0
 			}
 		}
 	]

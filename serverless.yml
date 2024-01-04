@@ -77,6 +77,16 @@ functions:
           authorizer: ${file(./yml/authorizer.yml)}
     environment:
       TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
+  getLoginUser:
+    handler: src/handlers/users/queryUser.handler
+    description: 'Get loged in user'
+    events:
+      - httpApi:
+          path: /${self:provider.stage}/currentUser/{userId}
+          method: GET
+          authorizer: ${file(./yml/authorizer.yml)}
+    environment:
+      TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
   createUser:
     handler: src/handlers/users/createUser.handler
     events:

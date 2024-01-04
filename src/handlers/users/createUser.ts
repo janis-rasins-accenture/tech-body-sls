@@ -37,6 +37,7 @@ export const handler = async (event: APIGatewayEvent) => {
       email: user.email,
       userName: user.userName,
       avatarUrl: user.avatarUrl,
+      isAdmin: 0,
     },
   };
 
@@ -47,7 +48,6 @@ export const handler = async (event: APIGatewayEvent) => {
     TableName: TABLE_NAME_AUTH,
     Item: {
       userId: uuid,
-      isAdmin: 0,
       email: user.email,
       password: hashedPassword,
     },

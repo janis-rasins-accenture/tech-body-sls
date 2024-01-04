@@ -12,6 +12,13 @@ export const handler = async ({ pathParameters }: APIGatewayEvent) => {
     throw new Error(errMessage);
   }
   const pathParams = pathParameters as unknown as UserPathParams;
+
+  if (!pathParams || !pathParams.userId) {
+    const errMessage = 'userId not found in pathParameters';
+    console.log(errMessage);
+    return returnData(400, 'Bad Request', { message: errMessage });
+  }
+
   const { userId } = pathParams;
   const params: QueryCommandInput = {
     KeyConditionExpression: 'userId = :u',
