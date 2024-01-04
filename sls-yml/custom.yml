@@ -1,0 +1,26 @@
+serverless-offline:
+  httpPort: 4000
+  lambdaPort: 4002
+serverless-dynamodb:
+  stages:
+    - local
+  start:
+    docker: true
+    port: 8010
+    inMemory: true
+    heapInitial: 200m
+    heapMax: 1g
+    migrate: true
+    seed: true
+    convertEmptyValues: true
+  seed:
+    test:
+      sources:
+        - table: usersTable
+          rawsources: [./dynamodb-tables/usersTable-data.json]
+        - table: carouselSlidesTable
+          rawsources: [./dynamodb-tables/carouselSlidesTable-data.json]
+        - table: questionsTable
+          rawsources: [./dynamodb-tables/questionsTable-data.json]
+        - table: authTable
+          rawsources: [./dynamodb-tables/authTable-data.json]

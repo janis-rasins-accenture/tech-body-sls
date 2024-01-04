@@ -1,0 +1,114 @@
+Resources:
+  usersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: usersTable
+      KeySchema:
+        - AttributeName: userId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: isActive
+          AttributeType: N
+        - AttributeName: firstName
+          AttributeType: S
+        - AttributeName: userName
+          AttributeType: S
+      ProvisionedThroughput:
+        ReadCapacityUnits: 3
+        WriteCapacityUnits: 3
+      GlobalSecondaryIndexes:
+        - IndexName: isActiveIndex
+          KeySchema:
+            - AttributeName: isActive
+              KeyType: HASH
+            - AttributeName: firstName
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
+        - IndexName: userNameIndex
+          KeySchema:
+            - AttributeName: userName
+              KeyType: HASH
+            - AttributeName: firstName
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
+  carouselSlidesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: carouselSlidesTable
+      KeySchema:
+        - AttributeName: carouselSlideId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: carouselSlideId
+          AttributeType: S
+        - AttributeName: isActiveSlide
+          AttributeType: N
+        - AttributeName: sortIndex
+          AttributeType: N
+      ProvisionedThroughput:
+        ReadCapacityUnits: 3
+        WriteCapacityUnits: 3
+      GlobalSecondaryIndexes:
+        - IndexName: isActiveSlideIndex
+          KeySchema:
+            - AttributeName: isActiveSlide
+              KeyType: HASH
+            - AttributeName: sortIndex
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
+  questionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: questionsTable
+      KeySchema:
+        - AttributeName: questionId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: questionId
+          AttributeType: S
+        - AttributeName: isActive
+          AttributeType: N
+        - AttributeName: sortIndex
+          AttributeType: N  
+      ProvisionedThroughput:
+          ReadCapacityUnits: 3
+          WriteCapacityUnits: 3
+      GlobalSecondaryIndexes:
+        - IndexName: isActiveQuestionsIndex
+          KeySchema:
+            - AttributeName: isActive
+              KeyType: HASH
+            - AttributeName: sortIndex
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
+  authTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: authTable
+      KeySchema:
+        - AttributeName: email
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: email
+          AttributeType: S
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1

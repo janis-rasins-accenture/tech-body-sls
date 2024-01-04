@@ -1,0 +1,23 @@
+name: aws
+runtime: nodejs18.x
+stage: ${opt:stage, 'local'}
+region: ${env:REGION}
+timeout: 30
+memorySize: 256
+iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - dynamodb:DescribeTable
+      - dynamodb:Query
+      - dynamodb:Scan
+      - dynamodb:GetItem
+      - dynamodb:PutItem
+      - dynamodb:UpdateItem
+      - dynamodb:DeleteItem
+    Resource: 'arn:aws:dynamodb:${env:REGION}:*:*'
+environment:
+  IS_OFFLINE: ${env:IS_OFFLINE}
+  DYNAMO_ENDPOINT: ${env:DYNAMO_ENDPOINT}
+  REGION: ${env:REGION}
+  JWT_SECRET: ${env:JWT_SECRET}
+  
