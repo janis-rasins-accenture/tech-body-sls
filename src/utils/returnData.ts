@@ -1,5 +1,6 @@
 export interface BodyDataIF {
   message: string;
+  success: boolean;
   data?: {
     [key: string]: any;
   };
@@ -16,6 +17,7 @@ export const returnData = (
 ): StandardResponse => {
   const body: BodyDataIF = {
     message,
+    success: statusCode === 200,
   };
 
   if (data && Object.keys(data).length) {

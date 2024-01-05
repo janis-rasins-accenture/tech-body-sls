@@ -5,6 +5,8 @@ hello-world:
     - httpApi:
         path: /${self:provider.stage}/hello
         method: GET
+        authorizer:
+          name: verifyToken
 getUsers:
   handler: src/handlers/users/queryUsers.handler
   description: 'Get active users'
@@ -12,7 +14,8 @@ getUsers:
     - httpApi:
         path: /${self:provider.stage}/users
         method: GET
-        authorizer: ${file(./yml/authorizer.yml)}
+        authorizer:
+          name: verifyToken
   environment:
     TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 getLoginUser:
@@ -22,7 +25,8 @@ getLoginUser:
     - httpApi:
         path: /${self:provider.stage}/currentUser/{userId}
         method: GET
-        authorizer: ${file(./yml/authorizer.yml)}
+        authorizer:
+          name: verifyToken
   environment:
     TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 createUser:
@@ -49,6 +53,8 @@ createCarouselSlides:
     - httpApi:
         path: /${self:provider.stage}/carouselSlides
         method: POST
+        authorizer:
+          name: verifyToken
   environment:
     TABLE_NAME_SLIDES: ${env:TABLE_NAME_SLIDES}
 getQuestions:
@@ -66,27 +72,32 @@ createTexts:
     - httpApi:
         path: /${self:provider.stage}/questions
         method: POST
+        authorizer:
+          name: verifyToken
   environment:
     TABLE_NAME_QUESTIONS: ${env:TABLE_NAME_QUESTIONS}
 login:
-  handler: src/handlers/auth/auth.login
+  handler: src/handlers/auth/login.handler
   events:
     - httpApi:
         path: /${self:provider.stage}/login
         method: POST
   environment:
     TABLE_NAME_AUTH: ${env:TABLE_NAME_AUTH}
+    TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 logout:
-  handler: src/handlers/auth/auth.logout
+  handler: src/handlers/auth/logout.handler
   events:
     - httpApi:
         path: /${self:provider.stage}/logout
         method: POST
+        authorizer:
+          name: verifyToken
 isAuthorized:
-  handler: src/handlers/auth/auth.isAuthorized
+  handler: src/handlers/auth/isAuthorized.handler
   events:
     - httpApi:
         path: /${self:provider.stage}/auth
         method: GET
 verifyToken:
-  handler: src/handlers/auth/auth.verifyToken
+  handler: src/handlers/auth/verifyToken.handler

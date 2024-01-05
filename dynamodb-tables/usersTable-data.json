@@ -1,776 +1,522 @@
 [
   {
     "userId": {
-      "S": "f3dd587c-c1d5-4028-89cd-d291b176898a"
+      "S": "1"
     },
     "firstName": {
-      "S": "Floyd"
+      "S": "Andrea"
     },
     "lastName": {
-      "S": "Skiles"
+      "S": "Homenick"
     },
     "email": {
-      "S": "Floyd.Skiles@example.com"
-    },
-    "userName": {
-      "S": "Floyd.Skiles"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "1"
-    }
-  },
-  {
-    "userId": {
-      "S": "67c7f50d-cf7c-46ee-a88c-45a79b0d6479"
-    },
-    "firstName": {
-      "S": "Darlene"
-    },
-    "lastName": {
-      "S": "Reinger"
-    },
-    "email": {
-      "S": "Darlene.Reinger91@example.com"
+      "S": "Andrea98@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1034.jpg"
+      "S": "https://avatars.githubusercontent.com/u/59833611"
     },
     "userName": {
-      "S": "Darlene_Reinger"
+      "S": "Andrea.Homenick"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["4", "9", "11"]
     }
   },
   {
     "userId": {
-      "S": "a35a543a-5134-444f-a6ee-2da2ff804ff0"
+      "S": "2"
     },
     "firstName": {
-      "S": "Rafael"
+      "S": "Olga"
     },
     "lastName": {
-      "S": "Hickle"
+      "S": "Labadie"
     },
     "email": {
-      "S": "Rafael_Hickle66@example.com"
-    },
-    "userName": {
-      "S": "Rafael24"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "3bd442c4-609c-4fa8-8282-ce5a417d11d1"
-    },
-    "firstName": {
-      "S": "Lillie"
-    },
-    "lastName": {
-      "S": "Pollich"
-    },
-    "email": {
-      "S": "Lillie.Pollich90@example.com"
+      "S": "Olga_Labadie@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/537.jpg"
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/930.jpg"
     },
     "userName": {
-      "S": "Lillie_Pollich"
+      "S": "Olga_Labadie13"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["7", "8", "11"]
     }
   },
   {
     "userId": {
-      "S": "62d555d9-faff-433b-8c68-2e69286d6366"
+      "S": "3"
     },
     "firstName": {
-      "S": "Ellen"
+      "S": "Erma"
     },
     "lastName": {
-      "S": "Sanford"
+      "S": "Will"
     },
     "email": {
-      "S": "Ellen.Sanford96@example.com"
+      "S": "Erma.Will66@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/204.jpg"
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/565.jpg"
     },
     "userName": {
-      "S": "Ellen79"
+      "S": "Erma.Will57"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["8", "18"]
     }
   },
   {
     "userId": {
-      "S": "44a81cb0-7a0a-41da-a943-207181527757"
+      "S": "4"
     },
     "firstName": {
-      "S": "Belinda"
+      "S": "Celia"
     },
     "lastName": {
-      "S": "Johnston"
+      "S": "Walker-Emmerich"
     },
     "email": {
-      "S": "Belinda.Johnston@example.com"
+      "S": "Celia33@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1229.jpg"
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/508.jpg"
     },
     "userName": {
-      "S": "Belinda.Johnston66"
+      "S": "Celia32"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["2", "6", "10", "11"]
     }
   },
   {
     "userId": {
-      "S": "58460459-d4db-44b6-b489-fb712548c812"
+      "S": "5"
     },
     "firstName": {
-      "S": "Dwight"
+      "S": "Raquel"
     },
     "lastName": {
-      "S": "Kuphal"
+      "S": "Kling"
     },
     "email": {
-      "S": "Dwight_Kuphal@example.com"
+      "S": "Raquel.Kling@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/579.jpg"
+      "S": "https://avatars.githubusercontent.com/u/84217411"
     },
     "userName": {
-      "S": "Dwight_Kuphal63"
+      "S": "Raquel11"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["15", "16"]
     }
   },
   {
     "userId": {
-      "S": "6bde2e2d-a5cb-4508-88f9-d497dca8fcfa"
+      "S": "6"
     },
     "firstName": {
-      "S": "Brooke"
+      "S": "Ervin"
     },
     "lastName": {
-      "S": "Brekke"
+      "S": "Deckow"
     },
     "email": {
-      "S": "Brooke.Brekke@example.com"
+      "S": "Ervin.Deckow@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1194.jpg"
+      "S": "https://avatars.githubusercontent.com/u/8960878"
     },
     "userName": {
-      "S": "Brooke.Brekke"
+      "S": "Ervin_Deckow65"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["1", "3", "4", "6", "8", "14", "17", "20"]
     }
   },
   {
     "userId": {
-      "S": "8c79c953-9401-4fee-9270-e314f4680d2d"
+      "S": "7"
     },
     "firstName": {
-      "S": "Rudy"
+      "S": "Joan"
     },
     "lastName": {
-      "S": "Kassulke"
+      "S": "Hagenes"
     },
     "email": {
-      "S": "Rudy47@example.com"
+      "S": "Joan76@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/641.jpg"
+      "S": "https://avatars.githubusercontent.com/u/33719117"
     },
     "userName": {
-      "S": "Rudy.Kassulke14"
+      "S": "Joan_Hagenes86"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["8", "10", "13", "14", "16", "17", "19"]
     }
   },
   {
     "userId": {
-      "S": "f3949939-a4a9-4406-bb22-aed46f1f3bc0"
+      "S": "8"
     },
     "firstName": {
-      "S": "Leah"
+      "S": "Gwen"
     },
     "lastName": {
-      "S": "Armstrong"
+      "S": "Hagenes"
     },
     "email": {
-      "S": "Leah75@example.com"
+      "S": "Gwen79@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/423.jpg"
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/686.jpg"
     },
     "userName": {
-      "S": "Leah24"
+      "S": "Gwen_Hagenes"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["3", "10", "12", "13", "17", "20"]
     }
   },
   {
     "userId": {
-      "S": "f51e0902-2a61-46e7-a689-a21026664301"
+      "S": "9"
     },
     "firstName": {
-      "S": "Marion"
+      "S": "Timmy"
     },
     "lastName": {
-      "S": "Feeney"
+      "S": "Gerhold"
     },
     "email": {
-      "S": "Marion.Feeney@example.com"
+      "S": "Timmy73@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/135.jpg"
+      "S": "https://avatars.githubusercontent.com/u/94007227"
     },
     "userName": {
-      "S": "Marion.Feeney88"
+      "S": "Timmy_Gerhold21"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["4", "5", "11", "13", "15", "20"]
     }
   },
   {
     "userId": {
-      "S": "724e5661-313e-416d-baa7-252192948e7c"
+      "S": "10"
     },
     "firstName": {
-      "S": "Laurence"
+      "S": "Tina"
     },
     "lastName": {
-      "S": "Jacobson"
+      "S": "Schiller"
     },
     "email": {
-      "S": "Laurence_Jacobson@example.com"
+      "S": "Tina96@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/208.jpg"
+      "S": "https://avatars.githubusercontent.com/u/98177223"
     },
     "userName": {
-      "S": "Laurence_Jacobson"
+      "S": "Tina.Schiller81"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["1", "5", "8", "16", "17", "19", "20"]
     }
   },
   {
     "userId": {
-      "S": "1653d642-7e53-4a80-a1bc-542de928b1f6"
+      "S": "11"
+    },
+    "firstName": {
+      "S": "Rodney"
+    },
+    "lastName": {
+      "S": "Walker"
+    },
+    "email": {
+      "S": "Rodney.Walker@example.com"
+    },
+    "avatarUrl": {
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1167.jpg"
+    },
+    "userName": {
+      "S": "Rodney84"
+    },
+    "isActive": {
+      "N": "1"
+    },
+    "followed": {
+      "SS": ["4", "7", "8", "13", "14", "16"]
+    }
+  },
+  {
+    "userId": {
+      "S": "12"
+    },
+    "firstName": {
+      "S": "Randal"
+    },
+    "lastName": {
+      "S": "Jerde"
+    },
+    "email": {
+      "S": "Randal54@example.com"
+    },
+    "avatarUrl": {
+      "S": "https://avatars.githubusercontent.com/u/35313087"
+    },
+    "userName": {
+      "S": "Randal.Jerde"
+    },
+    "isActive": {
+      "N": "1"
+    },
+    "followed": {
+      "SS": ["6", "9", "10", "15"]
+    }
+  },
+  {
+    "userId": {
+      "S": "13"
+    },
+    "firstName": {
+      "S": "Elizabeth"
+    },
+    "lastName": {
+      "S": "Fisher"
+    },
+    "email": {
+      "S": "Elizabeth_Fisher56@example.com"
+    },
+    "avatarUrl": {
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/635.jpg"
+    },
+    "userName": {
+      "S": "Elizabeth_Fisher"
+    },
+    "isActive": {
+      "N": "1"
+    },
+    "followed": {
+      "SS": ["5", "7", "8", "10", "18"]
+    }
+  },
+  {
+    "userId": {
+      "S": "14"
+    },
+    "firstName": {
+      "S": "Carroll"
+    },
+    "lastName": {
+      "S": "West"
+    },
+    "email": {
+      "S": "Carroll_West@example.com"
+    },
+    "avatarUrl": {
+      "S": "https://avatars.githubusercontent.com/u/45577480"
+    },
+    "userName": {
+      "S": "Carroll7"
+    },
+    "isActive": {
+      "N": "1"
+    },
+    "followed": {
+      "SS": ["5", "6", "11", "12", "16", "18", "19"]
+    }
+  },
+  {
+    "userId": {
+      "S": "15"
+    },
+    "firstName": {
+      "S": "Terrance"
+    },
+    "lastName": {
+      "S": "Rempel"
+    },
+    "email": {
+      "S": "Terrance.Rempel5@example.com"
+    },
+    "avatarUrl": {
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/200.jpg"
+    },
+    "userName": {
+      "S": "Terrance_Rempel"
+    },
+    "isActive": {
+      "N": "1"
+    },
+    "followed": {
+      "SS": ["3", "4", "17"]
+    }
+  },
+  {
+    "userId": {
+      "S": "16"
+    },
+    "firstName": {
+      "S": "Ben"
+    },
+    "lastName": {
+      "S": "Sporer"
+    },
+    "email": {
+      "S": "Ben28@example.com"
+    },
+    "avatarUrl": {
+      "S": "https://avatars.githubusercontent.com/u/73582329"
+    },
+    "userName": {
+      "S": "Ben.Sporer"
+    },
+    "isActive": {
+      "N": "1"
+    },
+    "followed": {
+      "SS": ["2", "3", "14"]
+    }
+  },
+  {
+    "userId": {
+      "S": "17"
     },
     "firstName": {
       "S": "Clinton"
     },
     "lastName": {
-      "S": "Simonis"
+      "S": "Crooks"
     },
     "email": {
-      "S": "Clinton.Simonis50@example.com"
+      "S": "Clinton72@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/763.jpg"
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/657.jpg"
     },
     "userName": {
-      "S": "Clinton_Simonis"
+      "S": "Clinton46"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["1", "2", "8", "10", "11", "13", "19"]
     }
   },
   {
     "userId": {
-      "S": "66819fff-bca1-4b57-8445-a248a589419c"
-    },
-    "firstName": {
-      "S": "Sue"
-    },
-    "lastName": {
-      "S": "Spinka"
-    },
-    "email": {
-      "S": "Sue.Spinka@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/11.jpg"
-    },
-    "userName": {
-      "S": "Sue_Spinka67"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "b0c51e1c-93a0-4317-9ae2-11d4e9eecdf5"
-    },
-    "firstName": {
-      "S": "Alton"
-    },
-    "lastName": {
-      "S": "Reichert"
-    },
-    "email": {
-      "S": "Alton.Reichert86@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1071.jpg"
-    },
-    "userName": {
-      "S": "Alton.Reichert45"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "c74db1c5-2545-450d-87b0-6701a7f63b53"
-    },
-    "firstName": {
-      "S": "Johnnie"
-    },
-    "lastName": {
-      "S": "Emmerich"
-    },
-    "email": {
-      "S": "Johnnie.Emmerich@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/440.jpg"
-    },
-    "userName": {
-      "S": "Johnnie_Emmerich90"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "272c0aca-680f-4c2e-8d99-0d434b2e416d"
-    },
-    "firstName": {
-      "S": "Gerard"
-    },
-    "lastName": {
-      "S": "Herman"
-    },
-    "email": {
-      "S": "Gerard68@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/544.jpg"
-    },
-    "userName": {
-      "S": "Gerard_Herman"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "a1efd1ae-7f67-497f-b039-0d5dc9d3ab89"
-    },
-    "firstName": {
-      "S": "Amelia"
-    },
-    "lastName": {
-      "S": "Fadel"
-    },
-    "email": {
-      "S": "Amelia.Fadel@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/425.jpg"
-    },
-    "userName": {
-      "S": "Amelia68"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "71b19c36-b29f-443d-950a-9b412aff9caa"
-    },
-    "firstName": {
-      "S": "Yvonne"
-    },
-    "lastName": {
-      "S": "Cormier"
-    },
-    "email": {
-      "S": "Yvonne98@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/74.jpg"
-    },
-    "userName": {
-      "S": "Yvonne.Cormier10"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "4f711ffa-4b05-4ee0-b197-84e3820ec50b"
-    },
-    "firstName": {
-      "S": "Pat"
-    },
-    "lastName": {
-      "S": "Ebert"
-    },
-    "email": {
-      "S": "Pat_Ebert50@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1142.jpg"
-    },
-    "userName": {
-      "S": "Pat73"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "f1f24866-40fa-4b73-979a-6943cee49439"
-    },
-    "firstName": {
-      "S": "Mona"
-    },
-    "lastName": {
-      "S": "Hane"
-    },
-    "email": {
-      "S": "Mona.Hane37@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1244.jpg"
-    },
-    "userName": {
-      "S": "Mona_Hane56"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "9b3f6c25-7669-4f51-be25-a66d843c954f"
-    },
-    "firstName": {
-      "S": "Blanca"
-    },
-    "lastName": {
-      "S": "Robel"
-    },
-    "email": {
-      "S": "Blanca_Robel33@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/809.jpg"
-    },
-    "userName": {
-      "S": "Blanca_Robel"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "bd0f0b39-7327-4013-9c51-ca6155614ac5"
-    },
-    "firstName": {
-      "S": "Ted"
-    },
-    "lastName": {
-      "S": "Wintheiser"
-    },
-    "email": {
-      "S": "Ted11@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/737.jpg"
-    },
-    "userName": {
-      "S": "Ted83"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "c6be33d5-4e3b-4146-adba-f1bea774f3d9"
-    },
-    "firstName": {
-      "S": "Bradford"
-    },
-    "lastName": {
-      "S": "McLaughlin"
-    },
-    "email": {
-      "S": "Bradford28@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1129.jpg"
-    },
-    "userName": {
-      "S": "Bradford_McLaughlin27"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "f9e33aef-28d3-4df5-8e87-1effdae7af61"
-    },
-    "firstName": {
-      "S": "Lola"
-    },
-    "lastName": {
-      "S": "Gutkowski"
-    },
-    "email": {
-      "S": "Lola.Gutkowski25@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/487.jpg"
-    },
-    "userName": {
-      "S": "Lola63"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "eea3d8f5-961c-42a3-b8b0-f3b119e70a2f"
+      "S": "18"
     },
     "firstName": {
       "S": "Hope"
     },
     "lastName": {
-      "S": "O'Conner"
+      "S": "Cartwright"
     },
     "email": {
-      "S": "Hope.OConner@example.com"
+      "S": "Hope.Cartwright@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/972.jpg"
+      "S": "https://avatars.githubusercontent.com/u/50961033"
     },
     "userName": {
-      "S": "Hope.OConner"
+      "S": "Hope71"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["3", "6", "8", "11", "13", "15", "16", "19"]
     }
   },
   {
     "userId": {
-      "S": "dee614fe-9ffa-48eb-aab9-2f597d470a57"
+      "S": "19"
     },
     "firstName": {
-      "S": "Olive"
+      "S": "Raquel"
     },
     "lastName": {
-      "S": "Mertz"
+      "S": "Treutel-Durgan"
     },
     "email": {
-      "S": "Olive.Mertz72@example.com"
+      "S": "Raquel49@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/355.jpg"
+      "S": "https://avatars.githubusercontent.com/u/80992130"
     },
     "userName": {
-      "S": "Olive_Mertz17"
+      "S": "Raquel.Treutel-Durgan50"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["2", "9", "10", "11"]
     }
   },
   {
     "userId": {
-      "S": "adfd33bb-5ce4-41e3-8f0a-7b3e6fbc0ee8"
+      "S": "20"
     },
     "firstName": {
-      "S": "Joanna"
+      "S": "Antoinette"
     },
     "lastName": {
-      "S": "Welch"
+      "S": "Pollich"
     },
     "email": {
-      "S": "Joanna16@example.com"
+      "S": "Antoinette21@example.com"
     },
     "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/485.jpg"
+      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/471.jpg"
     },
     "userName": {
-      "S": "Joanna_Welch51"
+      "S": "Antoinette79"
     },
     "isActive": {
       "N": "1"
     },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "179b1318-a0d8-424d-9336-1bfb238c00a1"
-    },
-    "firstName": {
-      "S": "Bobby"
-    },
-    "lastName": {
-      "S": "Corwin"
-    },
-    "email": {
-      "S": "Bobby.Corwin@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/322.jpg"
-    },
-    "userName": {
-      "S": "Bobby40"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
-    }
-  },
-  {
-    "userId": {
-      "S": "a7bfde6f-db7d-41be-87c5-3cce81d61608"
-    },
-    "firstName": {
-      "S": "Marianne"
-    },
-    "lastName": {
-      "S": "Heidenreich"
-    },
-    "email": {
-      "S": "Marianne1@example.com"
-    },
-    "avatarUrl": {
-      "S": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/141.jpg"
-    },
-    "userName": {
-      "S": "Marianne.Heidenreich"
-    },
-    "isActive": {
-      "N": "1"
-    },
-    "isAdmin": {
-      "N": "0"
+    "followed": {
+      "SS": ["1", "3", "6", "9", "10", "11", "15", "20"]
     }
   }
 ]
