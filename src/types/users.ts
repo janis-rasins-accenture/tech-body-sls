@@ -33,3 +33,20 @@ export interface UserAuthIF {
 export interface UserPathParams {
   userId: string;
 }
+
+export interface UserAuthResponseIF {
+  userId: { S: string };
+  email: { S: string };
+  password: { S: string };
+}
+
+export interface MarshalledUserIF {
+  firstName: { S: string };
+  lastName: { S: string };
+  email: { S: string };
+  avatarUrl: { S: string };
+  userName: { S: string };
+  followed: { SS: string[] };
+  userId: { S: string };
+  isActive: { N: string };
+}

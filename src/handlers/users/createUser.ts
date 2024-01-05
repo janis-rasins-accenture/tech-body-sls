@@ -1,12 +1,12 @@
 import { APIGatewayEvent } from 'aws-lambda';
 import { v4 as uuidv4 } from 'uuid';
 import { PutCommandInput } from '@aws-sdk/lib-dynamodb';
-import { ValidationError } from 'yup';
 import bcrypt from 'bcrypt';
 import { putItem } from '../../aws/dynamodb/putItem';
 import { returnData } from '../../utils/returnData';
 import { InputUserCreateIF } from '../../types/users';
 import { userCreateSchema } from './validation/usersValidation';
+import { validateInput } from '../../utils/validateInput';
 
 export const handler = async (event: APIGatewayEvent) => {
   const { TABLE_NAME_USERS } = process.env;
@@ -18,14 +18,8 @@ export const handler = async (event: APIGatewayEvent) => {
     return returnData(400, 'No body!');
   }
   const user: InputUserCreateIF = JSON.parse(event.body);
-  try {
-    await userCreateSchema.validate(user);
-  } catch (error) {
-    if (error instanceof ValidationError) {
-      return returnData(400, error.message);
-    }
-    return returnData(400, 'Something goes wrong', { error });
-  }
+  await validateInput(userCreateSchema, user);
+
   const uuid = uuidv4();
   const params: PutCommandInput = {
     TableName: TABLE_NAME_USERS,

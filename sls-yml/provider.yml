@@ -20,4 +20,10 @@ environment:
   DYNAMO_ENDPOINT: ${env:DYNAMO_ENDPOINT}
   REGION: ${env:REGION}
   JWT_SECRET: ${env:JWT_SECRET}
+httpApi:
+  authorizers:
+    verifyToken:
+      type: request
+      name: verifyToken
+      identitySource: $request.header.cookie
   
