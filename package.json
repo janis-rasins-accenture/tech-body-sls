@@ -7,8 +7,9 @@
     "dynamodb-local": "sls dynamodb start --seed=test -m",
     "dynamodb-admin": "cross-env DYNAMO_ENDPOINT=http://localhost:8010 AWS_PROFILE=serverless-basic dynamodb-admin",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint": "tsc --noEmit && eslint 'src/**/*.ts' --debug",
+    "lint:fix": "tsc --noEmit && eslint --fix \"src/**/*.ts\"",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,8 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "prettier": "^3.1.0",
     "serverless-dynamodb": "^0.2.47",
     "serverless-offline": "^13.2.1",
@@ -44,11 +47,22 @@
     "@aws-sdk/client-dynamodb": "^3.451.0",
     "@aws-sdk/client-lambda": "^3.451.0",
     "@aws-sdk/lib-dynamodb": "^3.451.0",
+    "@aws-sdk/util-dynamodb": "^3.485.0",
     "@types/aws-lambda": "^8.10.126",
     "bcrypt": "^5.1.1",
     "cookie": "^0.6.0",
     "jsonwebtoken": "^9.0.2",
     "uuid": "^9.0.1",
     "yup": "^1.3.2"
+  },
+  "lint-staged": {
+    "*.+(js|ts)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
