@@ -7,8 +7,8 @@
     "dynamodb-local": "sls dynamodb start --seed=test -m",
     "dynamodb-admin": "cross-env DYNAMO_ENDPOINT=http://localhost:8010 AWS_PROFILE=serverless-basic dynamodb-admin",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "tsc --noEmit && eslint 'src/**/*.ts' --debug",
-    "lint:fix": "tsc --noEmit && eslint --fix \"src/**/*.ts\"",
+    "lint": "tsc --noEmit && eslint \"./src/**/*.ts\" --debug",
+    "lint:fix": "tsc --noEmit && eslint --fix \"./src/**/*.ts\"",
     "prepare": "husky install"
   },
   "author": "",
