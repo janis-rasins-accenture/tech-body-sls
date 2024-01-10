@@ -6,8 +6,8 @@ const MAX_NAME_LETTERS_TITLE = 20;
 const MIN_NAME_LETTERS_DESCRIPTION = 50;
 const MAX_NAME_LETTERS_DESCRIPTION = 200;
 
-export const carouselSlidesSchema: Yup.ObjectSchema<CarouselSlidesBaseIF> = Yup.object(
-  {
+export const carouselSlidesSchema: Yup.ObjectSchema<CarouselSlidesBaseIF> =
+  Yup.object({
     title: Yup.string()
       .required('Title is required!')
       .min(
@@ -29,5 +29,4 @@ export const carouselSlidesSchema: Yup.ObjectSchema<CarouselSlidesBaseIF> = Yup.
         `Descritpion must not exceed ${MAX_NAME_LETTERS_DESCRIPTION} letters`
       ),
     link: Yup.string().required('Link is required!'),
-  }
-);
+  });
