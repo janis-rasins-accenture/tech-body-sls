@@ -6,8 +6,8 @@ const MAX_NAME_LETTERS_TITLE = 50;
 const MIN_NAME_LETTERS_TEXT = 2;
 const MAX_NAME_LETTERS_TEXT = 200;
 
-export const questionCreateSchema: Yup.ObjectSchema<InputQuestionCreateIF> = Yup.object(
-  {
+export const questionCreateSchema: Yup.ObjectSchema<InputQuestionCreateIF> =
+  Yup.object({
     question: Yup.string()
       .required('First name is required!')
       .min(
@@ -28,5 +28,4 @@ export const questionCreateSchema: Yup.ObjectSchema<InputQuestionCreateIF> = Yup
         MAX_NAME_LETTERS_TEXT,
         `Surname must not exceed ${MAX_NAME_LETTERS_TEXT} letters`
       ),
-  }
-);
+  });
