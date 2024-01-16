@@ -101,3 +101,25 @@ isAuthorized:
         method: GET
 verifyToken:
   handler: src/handlers/auth/verifyToken.handler
+getPosts:
+  handler: src/handlers/posts/queryPosts.handler
+  description: 'Get active posts'
+  events:
+    - httpApi:
+        path: /${self:provider.stage}/posts
+        method: GET
+        authorizer:
+          name: verifyToken
+  environment:
+    TABLE_NAME_POSTS: ${env:TABLE_NAME_POSTS}
+getPostsByUser:
+  handler: src/handlers/posts/queryPostsByUser.handler
+  description: 'Get active posts by one user'
+  events:
+    - httpApi:
+        path: /${self:provider.stage}/posts/{userId}
+        method: GET
+        authorizer:
+          name: verifyToken
+  environment:
+    TABLE_NAME_POSTS: ${env:TABLE_NAME_POSTS}

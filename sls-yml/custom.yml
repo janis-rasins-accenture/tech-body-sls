@@ -24,3 +24,5 @@ serverless-dynamodb:
           rawsources: [./dynamodb-tables/questionsTable-data.json]
         - table: authTable
           rawsources: [./dynamodb-tables/authTable-data.json]
+        - table: postsTable
+          rawsources: [./dynamodb-tables/postsTable-data.json]

@@ -112,3 +112,43 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
+  postsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: postsTable
+      KeySchema:
+        - AttributeName: postId
+          KeyType: HASH
+      AttributeDefinitions:
+        - AttributeName: postId
+          AttributeType: S
+        - AttributeName: userId
+          AttributeType: S
+        - AttributeName: isActive
+          AttributeType: N
+      ProvisionedThroughput:
+        ReadCapacityUnits: 3
+        WriteCapacityUnits: 3
+      GlobalSecondaryIndexes:
+        - IndexName: isActiveIndex
+          KeySchema:
+            - AttributeName: isActive
+              KeyType: HASH
+            - AttributeName: postId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
+        - IndexName: userIndex
+          KeySchema:
+            - AttributeName: userId
+              KeyType: HASH
+            - AttributeName: postId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
