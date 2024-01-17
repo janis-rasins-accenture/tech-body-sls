@@ -1,8 +1,13 @@
 import { APIGatewayEvent } from 'aws-lambda';
 import { verifyCookie } from './lib/cookies';
+import { getUserProfile } from '../users/getUser';
+import { returnData } from '../../utils/returnData';
 
 export const handler = async (event: APIGatewayEvent) => {
-  const { JWT_SECRET } = process.env;
+  const { JWT_SECRET, TABLE_NAME_USERS } = process.env;
+  if (!TABLE_NAME_USERS) {
+    return returnData(400, 'Table name is not defined!');
+  }
   const unauthorized = {
     statusCode: 401,
     body: JSON.stringify({ success: false, err: 'Unauthorized' }),
@@ -18,12 +23,15 @@ export const handler = async (event: APIGatewayEvent) => {
   if (expireTimestamp < currentTimestamp) {
     return unauthorized;
   }
+  const user = await getUserProfile(decoded.userId, TABLE_NAME_USERS);
   return {
     statusCode: 200,
     body: JSON.stringify({
       success: true,
-      userId: decoded.userId,
-      expireTimestamp,
+      data: {
+        expireTimestamp,
+        user,
+      },
     }),
   };
 };

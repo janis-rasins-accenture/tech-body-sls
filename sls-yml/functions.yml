@@ -99,6 +99,8 @@ isAuthorized:
     - httpApi:
         path: /${self:provider.stage}/auth
         method: GET
+  environment:
+    TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 verifyToken:
   handler: src/handlers/auth/verifyToken.handler
 getPosts:

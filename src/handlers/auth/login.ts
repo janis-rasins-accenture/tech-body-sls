@@ -1,6 +1,5 @@
 import { APIGatewayEvent } from 'aws-lambda';
 import { GetItemCommandInput } from '@aws-sdk/client-dynamodb';
-import { unmarshall } from '@aws-sdk/util-dynamodb';
 import { returnData } from '../../utils/returnData';
 import { UserAuthIF, UserAuthResponseIF } from '../../types/users';
 import { matchPassword } from './lib/password';
@@ -8,6 +7,7 @@ import { generateCookie } from './lib/cookies';
 import { authSchema } from './validation/authValidation';
 import { validateInput } from '../../utils/validateInput';
 import { getItem } from '../../aws/dynamodb/getItem';
+import { getUserProfile } from '../users/getUser';
 
 export const handler = async (event: APIGatewayEvent) => {
   if (!event.body) {
@@ -47,24 +47,7 @@ export const handler = async (event: APIGatewayEvent) => {
     return returnData(401, 'Email or password is incorrect');
   }
   const cookie = generateCookie(userId, 1, JWT_SECRET);
-  const getItemParams: GetItemCommandInput = {
-    Key: {
-      userId: { S: userId },
-    },
-    TableName: TABLE_NAME_USERS,
-  };
-  let user = {};
-  try {
-    const data = await getItem(getItemParams);
-    user = {
-      ...unmarshall(data),
-      followed: data.followed.SS ?? [],
-    };
-  } catch (error: any) {
-    const errMessage = error.message ?? 'Unknown error';
-    console.error(errMessage);
-    return returnData(500, 'Internal error', { message: errMessage });
-  }
+  const user = await getUserProfile(userId, TABLE_NAME_USERS);
 
   return {
     statusCode: 200,
