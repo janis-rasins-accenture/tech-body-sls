@@ -34,6 +34,10 @@ export interface UserPathParams {
   userId: string;
 }
 
+export interface UserNamePathParams {
+  userName: string;
+}
+
 export interface UserAuthResponseIF {
   userId: { S: string };
   email: { S: string };
