@@ -18,6 +18,17 @@ getUsers:
           name: verifyToken
   environment:
     TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
+getUserByName:
+  handler: src/handlers/users/getUserByName.handler
+  description: 'Get user by user name'
+  events:
+    - httpApi:
+        path: /${self:provider.stage}/user/{userName}
+        method: GET
+        authorizer:
+          name: verifyToken
+  environment:
+    TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
 getLoginUser:
   handler: src/handlers/users/queryUser.handler
   description: 'Get loged in user'
