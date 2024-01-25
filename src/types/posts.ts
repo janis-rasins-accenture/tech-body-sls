@@ -13,8 +13,20 @@ export interface PostIF extends PostBaseIF {
 
 export interface InputPostsCreateIF extends PostBaseIF {}
 
-export interface InputPostsUpdateIF extends PostIF {}
+export interface InputPostsUpdateIF {
+  postId: string;
+  title?: string;
+  text?: string;
+  imageUrl?: string;
+  isActive?: number;
+  userId?: string;
+  unixTimestamp?: number;
+}
 
 export interface PostsByUserPathParams {
   userId: string;
+}
+
+export interface PostUpdatePathParams {
+  postId: string;
 }

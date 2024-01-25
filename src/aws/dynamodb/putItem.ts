@@ -8,14 +8,13 @@ export const putItem = async (params: PutCommandInput) => {
       'Success - item added or updated: httpStatusCode ',
       data.$metadata.httpStatusCode
     );
-    return {
-      success: true,
-    };
+    return data.ItemCollectionMetrics;
   } catch (error: any) {
     console.log('Error: ', error.stack);
-    return {
+    const errorResponse = {
       success: false,
-      error,
+      message: error.message,
     };
+    throw errorResponse;
   }
 };

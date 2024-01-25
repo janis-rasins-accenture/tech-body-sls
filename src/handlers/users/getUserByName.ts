@@ -31,7 +31,10 @@ export const handler = async ({ pathParameters }: APIGatewayEvent) => {
   };
   try {
     const data = await queryItems(params);
-    return returnData(200, 'User list', data);
+    if (data?.length) {
+      return returnData(200, 'User profile', data[0]);
+    }
+    return returnData(200, 'There is no such user');
   } catch (error: any) {
     const errMessage = error.message ?? 'Unknown error';
     console.error(errMessage);
