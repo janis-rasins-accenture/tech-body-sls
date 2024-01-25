@@ -21,6 +21,7 @@ export const handler = async ({ pathParameters }: APIGatewayEvent) => {
 
   const { userId } = pathParams;
   const params: QueryCommandInput = {
+    IndexName: 'userIndex',
     KeyConditionExpression: 'userId = :u',
     ExpressionAttributeValues: {
       ':u': userId,

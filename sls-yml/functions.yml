@@ -136,3 +136,14 @@ getPostsByUser:
           name: verifyToken
   environment:
     TABLE_NAME_POSTS: ${env:TABLE_NAME_POSTS}
+updatePost:
+  handler: src/handlers/posts/updatePost.handler
+  description: 'Update post'
+  events:
+    - httpApi:
+        path: /${self:provider.stage}/posts/{postId}
+        method: PUT
+        authorizer:
+          name: verifyToken
+  environment:
+    TABLE_NAME_POSTS: ${env:TABLE_NAME_POSTS}

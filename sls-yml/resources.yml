@@ -124,6 +124,8 @@ Resources:
           AttributeType: S
         - AttributeName: userId
           AttributeType: S
+        - AttributeName: title
+          AttributeType: S
         - AttributeName: isActive
           AttributeType: N
       ProvisionedThroughput:
@@ -146,6 +148,17 @@ Resources:
             - AttributeName: userId
               KeyType: HASH
             - AttributeName: postId
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 3
+            WriteCapacityUnits: 3
+        - IndexName: postIndex
+          KeySchema:
+            - AttributeName: postId
+              KeyType: HASH
+            - AttributeName: title
               KeyType: RANGE
           Projection:
             ProjectionType: ALL

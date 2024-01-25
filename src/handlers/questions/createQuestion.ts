@@ -35,9 +35,5 @@ export const handler = async (event: APIGatewayEvent) => {
     },
   };
   const result = await putItem(params);
-  if (result.success) {
-    console.log(`Question with Id ${uuid} created!`);
-    return returnData(200, 'Success!', { questionId: uuid });
-  }
-  return returnData(400, result.error);
+  return returnData(200, 'Success!', result);
 };

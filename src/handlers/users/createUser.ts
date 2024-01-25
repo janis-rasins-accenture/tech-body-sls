@@ -84,18 +84,7 @@ export const handler = async (event: APIGatewayEvent) => {
       password: hashedPassword,
     },
   };
-  try {
-    const [result, resultAuth] = await Promise.all([
-      putItem(params),
-      putItem(paramsAuth),
-    ]);
-
-    if (result.success && resultAuth.success) {
-      console.log(`User with Id ${uuid} created!`);
-      return returnData(200, 'Success!', { userId: uuid });
-    }
-    return returnData(400, 'Failed to create user or auth entry');
-  } catch (error) {
-    return returnData(500, 'Internal Server Error', { error });
-  }
+  await Promise.all([putItem(params), putItem(paramsAuth)]);
+  console.log(`User with Id ${uuid} created!`);
+  return returnData(200, 'Success!', { userId: uuid });
 };

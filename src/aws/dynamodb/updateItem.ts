@@ -8,15 +8,13 @@ export const updateItem = async (params: UpdateCommandInput) => {
       'Success - item updated: httpStatusCode ',
       data.$metadata.httpStatusCode
     );
-    return {
-      success: true,
-      data,
-    };
+    return data.Attributes;
   } catch (error: any) {
     console.log('Error: ', error.stack);
-    return {
+    const errorResponse = {
       success: false,
-      error,
+      message: error.message,
     };
+    throw errorResponse;
   }
 };
