@@ -37,27 +37,23 @@ describe('Unit test for AWS lambda query posts handler', () => {
     const response = QueryPosts.handler();
     await expect(response).rejects.toThrow('No TABLE_NAME_POSTS');
   });
-  it('Handle DynamoDB error', async () => {
-    const errorResponse = {
+  const errorResponse = [
+    {
       success: false,
-    };
-    spyQueryItems.mockImplementation(() => Promise.reject(errorResponse));
-    const response = await QueryPosts.handler();
-    expect(response.statusCode).toEqual(500);
-    expect(JSON.parse(response.body).message).toEqual('Internal error');
-    expect(JSON.parse(response.body).data.message).toEqual('Unknown error');
-  });
-  it('Handle DynamoDB error', async () => {
-    const errorResponse = {
+    },
+    {
       success: false,
-      message: '',
-    };
-    spyQueryItems.mockImplementation(() => Promise.reject(errorResponse));
-    const response = await QueryPosts.handler();
-    expect(response.statusCode).toEqual(500);
-    expect(JSON.parse(response.body).message).toEqual('Internal error');
-    expect(JSON.parse(response.body).data.message).toEqual(
-      errorResponse.message
-    );
+      message: 'Some error',
+    },
+  ];
+  errorResponse.forEach((element) => {
+    const message = element.message ?? 'Unknown error';
+    it(`Handle DynamoDB error with message ${message}`, async () => {
+      spyQueryItems.mockImplementation(() => Promise.reject(element));
+      const response = await QueryPosts.handler();
+      expect(response.statusCode).toEqual(500);
+      expect(JSON.parse(response.body).message).toEqual('Internal error');
+      expect(JSON.parse(response.body).data.message).toEqual(message);
+    });
   });
 });

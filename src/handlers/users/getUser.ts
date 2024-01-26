@@ -3,6 +3,7 @@ import { GetItemCommandInput } from '@aws-sdk/client-dynamodb';
 import { unmarshall } from '@aws-sdk/util-dynamodb';
 import { getItem } from '../../aws/dynamodb/getItem';
 import { returnData } from '../../utils/returnData';
+import { UserPathParams } from '../../types/users';
 
 export const getUserProfile = async (userId: string, tableName: string) => {
   const params: GetItemCommandInput = {
@@ -32,7 +33,13 @@ export const handler = async (event: APIGatewayEvent) => {
     console.log(errMessage);
     throw new Error(errMessage);
   }
-  const userId = event.pathParameters?.userId as string;
+  const pathParams = event.pathParameters as unknown as UserPathParams;
+  if (!pathParams || !pathParams.userId) {
+    const errMessage = 'userId not found in pathParameters';
+    console.log(errMessage);
+    return returnData(400, 'Bad Request', { message: errMessage });
+  }
+  const { userId } = pathParams;
   const data = await getUserProfile(userId, TABLE_NAME_USERS);
   return returnData(200, 'Selected user', data);
 };

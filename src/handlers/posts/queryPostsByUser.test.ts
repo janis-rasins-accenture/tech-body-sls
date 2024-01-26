@@ -1,13 +1,16 @@
 import * as QueryPostsByUser from './queryPostsByUser';
 import * as QueryItems from '../../aws/dynamodb/queryItems';
 import { mockPosts } from '../../mockData/mockPosts';
-import { responseDataPostsByUser } from '../../mockData/mockResponsePostsByUser';
-import { responseDataPostsByUserMissigUserId } from '../../mockData/mockResponsePostsByUserMissingId';
+import { mockAPIGatewayEvent } from '../../mockData/mockEvent';
 
 describe('Unit test for AWS lambda query posts by user handler', () => {
   let spyQueryPostsCall: jest.SpyInstance;
   let spyQueryItems: jest.SpyInstance;
   const OLD_ENV = process.env;
+  const eventDataPostsByUser = {
+    ...mockAPIGatewayEvent,
+    pathParameters: { userId: '14' },
+  };
   beforeAll(() => {
     spyQueryItems = jest.spyOn(QueryItems, 'queryItems');
     spyQueryPostsCall = jest.spyOn(QueryPostsByUser, 'handler');
@@ -28,7 +31,7 @@ describe('Unit test for AWS lambda query posts by user handler', () => {
       data: mockPosts,
     };
     spyQueryItems.mockImplementation(() => Promise.resolve(mockPosts));
-    const response = await QueryPostsByUser.handler(responseDataPostsByUser);
+    const response = await QueryPostsByUser.handler(eventDataPostsByUser);
     expect(spyQueryPostsCall).toHaveBeenCalledTimes(1);
     expect(response.statusCode).toEqual(200);
     expect(JSON.parse(response.body).message).toEqual('Posts by user list');
@@ -36,7 +39,7 @@ describe('Unit test for AWS lambda query posts by user handler', () => {
   });
   it('Handle no table name', async () => {
     process.env = { ...OLD_ENV, TABLE_NAME_POSTS: '' };
-    const response = QueryPostsByUser.handler(responseDataPostsByUser);
+    const response = QueryPostsByUser.handler(eventDataPostsByUser);
     await expect(response).rejects.toThrow('No TABLE_NAME_POSTS');
   });
   it('Handle DynamoDB error', async () => {
@@ -44,7 +47,7 @@ describe('Unit test for AWS lambda query posts by user handler', () => {
       success: false,
     };
     spyQueryItems.mockImplementation(() => Promise.reject(errorResponse));
-    const response = await QueryPostsByUser.handler(responseDataPostsByUser);
+    const response = await QueryPostsByUser.handler(eventDataPostsByUser);
     expect(response.statusCode).toEqual(500);
     expect(JSON.parse(response.body).message).toEqual('Internal error');
     expect(JSON.parse(response.body).data.message).toEqual('Unknown error');
@@ -55,7 +58,7 @@ describe('Unit test for AWS lambda query posts by user handler', () => {
       message: '',
     };
     spyQueryItems.mockImplementation(() => Promise.reject(errorResponse));
-    const response = await QueryPostsByUser.handler(responseDataPostsByUser);
+    const response = await QueryPostsByUser.handler(eventDataPostsByUser);
     expect(response.statusCode).toEqual(500);
     expect(JSON.parse(response.body).message).toEqual('Internal error');
     expect(JSON.parse(response.body).data.message).toEqual(
@@ -63,9 +66,10 @@ describe('Unit test for AWS lambda query posts by user handler', () => {
     );
   });
   it('Handles missing userId in pathParameters', async () => {
-    const response = await QueryPostsByUser.handler(
-      responseDataPostsByUserMissigUserId
-    );
+    const response = await QueryPostsByUser.handler({
+      ...mockAPIGatewayEvent,
+      pathParameters: {},
+    });
     expect(response.statusCode).toEqual(400);
     expect(JSON.parse(response.body).message).toEqual('Bad Request');
     expect(JSON.parse(response.body).data.message).toEqual(
