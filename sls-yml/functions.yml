@@ -29,9 +29,9 @@ getUserByName:
           name: verifyToken
   environment:
     TABLE_NAME_USERS: ${env:TABLE_NAME_USERS}
-getLoginUser:
-  handler: src/handlers/users/queryUser.handler
-  description: 'Get loged in user'
+getUser:
+  handler: src/handlers/users/getUser.handler
+  description: 'Get user'
   events:
     - httpApi:
         path: /${self:provider.stage}/currentUser/{userId}

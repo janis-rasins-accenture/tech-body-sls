@@ -1,5 +1,4 @@
 import { mockAPIGatewayEvent } from '../../mockData/mockEvent';
-import { responseData } from '../../mockData/mockResponse';
 import * as HelloHandler from './hello';
 
 describe('Unit test for AWS lambda hello handler', () => {
@@ -12,7 +11,7 @@ describe('Unit test for AWS lambda hello handler', () => {
   it('Handles hello', async () => {
     const callBody = {
       message: expectedBodyMessage,
-      data: responseData,
+      data: mockAPIGatewayEvent,
     };
     const response = await HelloHandler.handler(mockAPIGatewayEvent);
     expect(spyHelloCall).toHaveBeenCalledTimes(1);

@@ -1,6 +1,6 @@
 import { QueryCommandInput } from '@aws-sdk/lib-dynamodb';
 import { APIGatewayEvent } from 'aws-lambda';
-import { queryItems } from '../../aws/dynamodb/queryItems';
+import { returnQueryItems } from '../../aws/dynamodb/queryItems';
 import { returnData } from '../../utils/returnData';
 import { PostsByUserPathParams } from '../../types/posts';
 
@@ -29,12 +29,5 @@ export const handler = async ({ pathParameters }: APIGatewayEvent) => {
     TableName: TABLE_NAME_POSTS,
     ScanIndexForward: true,
   };
-  try {
-    const data = await queryItems(params);
-    return returnData(200, 'Posts by user list', data);
-  } catch (error: any) {
-    const errMessage = error.message ?? 'Unknown error';
-    console.error(errMessage);
-    return returnData(500, 'Internal error', { message: errMessage });
-  }
+  return returnQueryItems(params, 'Posts by user list');
 };
